@@ -142,7 +142,7 @@
         //[cell.lblPost setAttributedText:string];
         
         
-        UILabel *lbl_name=[[UILabel alloc]initWithFrame:CGRectMake(80, 0,cell.frame.size.width-30,60)];
+        UILabel *lbl_name=[[UILabel alloc]initWithFrame:CGRectMake(80, 0,cell.frame.size.width-80,60)];
         [lbl_name setTextAlignment:NSTextAlignmentLeft];
         [lbl_name setFont:[UIFont systemFontOfSize:12.0f]];
     [lbl_name setNumberOfLines:0];

@@ -53,7 +53,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.automaticallyAdjustsScrollViewInsets = NO; //To reduce gap between post button and tableview
     
     self.title = @"Activity";
 
@@ -188,13 +188,6 @@ int temppostid;
     else{
         return size.height+160.0f;
     }
-    
-    
-   
-
-    
-    
-    
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath

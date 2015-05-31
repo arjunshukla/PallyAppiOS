@@ -39,7 +39,6 @@
 		263A94121A1FA1A700829D32 /* logo7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 263A94111A1FA1A700829D32 /* logo7@2x.png */; };
 		263A94161A1FDB9200829D32 /* SettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 263A94141A1FDB9200829D32 /* SettingVC.m */; };
 		263A94171A1FDB9200829D32 /* SettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 263A94151A1FDB9200829D32 /* SettingVC.xib */; };
-		263B811B1ACC9382006AD8A2 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 263B811A1ACC9382006AD8A2 /* FacebookSDK.framework */; };
 		263B811E1ACC972F006AD8A2 /* zig_zag_line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 263B811C1ACC972F006AD8A2 /* zig_zag_line@2x.png */; };
 		263B811F1ACC972F006AD8A2 /* zig_zag_line2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 263B811D1ACC972F006AD8A2 /* zig_zag_line2@2x.png */; };
 		263CC4CB1A605C83005A5FFE /* About_us_Profbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 263CC4C81A605C83005A5FFE /* About_us_Profbutton@2x.png */; };
@@ -209,6 +208,7 @@
 		26FF564D1A2CC3B9003F1CF0 /* homeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FF564C1A2CC3B9003F1CF0 /* homeTableViewCell.m */; };
 		26FF56511A2CCEF5003F1CF0 /* STBubbleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FF56501A2CCEF5003F1CF0 /* STBubbleTableViewCell.m */; };
 		26FF56541A2CD0F3003F1CF0 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FF56531A2CD0F3003F1CF0 /* Message.m */; };
+		4248611A1B18BE9500DF9FB8 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 424861191B18BE9500DF9FB8 /* FacebookSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -274,7 +274,6 @@
 		263A94131A1FDB9200829D32 /* SettingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingVC.h; sourceTree = "<group>"; };
 		263A94141A1FDB9200829D32 /* SettingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingVC.m; sourceTree = "<group>"; };
 		263A94151A1FDB9200829D32 /* SettingVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingVC.xib; sourceTree = "<group>"; };
-		263B811A1ACC9382006AD8A2 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../PallyCode/TestApp/FacebookSDK.framework; sourceTree = "<group>"; };
 		263B811C1ACC972F006AD8A2 /* zig_zag_line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zig_zag_line@2x.png"; sourceTree = "<group>"; };
 		263B811D1ACC972F006AD8A2 /* zig_zag_line2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zig_zag_line2@2x.png"; sourceTree = "<group>"; };
 		263CC4C81A605C83005A5FFE /* About_us_Profbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "About_us_Profbutton@2x.png"; sourceTree = "<group>"; };
@@ -484,6 +483,7 @@
 		26FF56501A2CCEF5003F1CF0 /* STBubbleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STBubbleTableViewCell.m; sourceTree = "<group>"; };
 		26FF56521A2CD0F3003F1CF0 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		26FF56531A2CD0F3003F1CF0 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		424861191B18BE9500DF9FB8 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -491,8 +491,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4248611A1B18BE9500DF9FB8 /* FacebookSDK.framework in Frameworks */,
 				26757EBC1A49F71E000F0A5D /* MessageUI.framework in Frameworks */,
-				263B811B1ACC9382006AD8A2 /* FacebookSDK.framework in Frameworks */,
 				261558A91A44C907009199FA /* AddressBookUI.framework in Frameworks */,
 				261558A71A44C63C009199FA /* AddressBook.framework in Frameworks */,
 				263F9D5E1A1BD89000759F9A /* QuartzCore.framework in Frameworks */,
@@ -535,7 +535,7 @@
 		262437331ACC6F6E002F83F3 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
-				263B811A1ACC9382006AD8A2 /* FacebookSDK.framework */,
+				424861191B18BE9500DF9FB8 /* FacebookSDK.framework */,
 				263F9D5D1A1BD89000759F9A /* QuartzCore.framework */,
 				261558A61A44C63C009199FA /* AddressBook.framework */,
 				261558A81A44C907009199FA /* AddressBookUI.framework */,
@@ -1459,6 +1459,7 @@
 					"$(inherited)",
 					/Users/karanbeersingh/Documents/FacebookSDK,
 					/Users/karanbeersingh/Desktop/PallyCode/TestApp,
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = TestApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
@@ -1476,6 +1477,7 @@
 					"$(inherited)",
 					/Users/karanbeersingh/Documents/FacebookSDK,
 					/Users/karanbeersingh/Desktop/PallyCode/TestApp,
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = TestApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;

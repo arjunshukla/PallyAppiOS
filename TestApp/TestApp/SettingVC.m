@@ -88,7 +88,12 @@
 
 -(void)tickbttn_action
 {
-     [[Singltonweblink createInstance]settingstatus:[[NSUserDefaults standardUserDefaults]objectForKey:@"UserId"] :strswitch_frndreq :strswitch_notify ];
+    NSDictionary *parsedData;
+    parsedData = [[Singltonweblink createInstance]settingstatus:[[NSUserDefaults standardUserDefaults]objectForKey:@"UserId"] :strswitch_frndreq :strswitch_notify ];
+    parsedData = [parsedData objectForKey:@"response"];
+    NSString *parsedString = [NSString stringWithFormat:@"%@", [parsedData objectForKey:@"res"]];
+    [self alertshow:1 :parsedString :nil];
+    
 }
 - (IBAction)swtcg_frndreqst:(id)sender {
     

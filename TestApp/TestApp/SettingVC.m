@@ -92,9 +92,14 @@
     parsedData = [[Singltonweblink createInstance]settingstatus:[[NSUserDefaults standardUserDefaults]objectForKey:@"UserId"] :strswitch_frndreq :strswitch_notify ];
     parsedData = [parsedData objectForKey:@"response"];
     NSString *parsedString = [NSString stringWithFormat:@"%@", [parsedData objectForKey:@"res"]];
-    [self alertshow:1 :parsedString :nil];
-    
+    if(parsedData != nil) {
+        [self alertshow :1 :@"Sucess" :parsedString];
+    }
+    else {
+        [self alertshow :1 :@"Sorry" :@"Could not complete the operation"];
+    }
 }
+
 - (IBAction)swtcg_frndreqst:(id)sender {
     
     if([sender isOn])

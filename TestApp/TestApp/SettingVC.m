@@ -186,7 +186,7 @@
           [self alertshow :1 :@"Sorry" :@"Fill the empty fields."];  
         }
         else{
-    if([tf_oldp.text  isEqualToString:tf_newp.text])
+    if(![tf_oldp.text  isEqualToString:tf_newp.text])
     {
         NSDictionary *diction= [[Singltonweblink createInstance] resetPassword:[[NSUserDefaults standardUserDefaults]objectForKey:@"UserId"] :tf_oldp.text :tf_newp.text];
         // NSLog(@"%@",diction);
@@ -197,7 +197,7 @@
     
     else
     {
-        [self alertshow :1 :@"Sorry" :@"Password not matching"];
+        [self alertshow :1 :@"Sorry" :@"Old and new passwords are same"];
     }
     }
     }

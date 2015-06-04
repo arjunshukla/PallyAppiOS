@@ -152,6 +152,7 @@
     
     [self performSelector:@selector(update_profile) withObject:self afterDelay:0.2f];
 }
+
 -(void)Viewpicker_bacvkground
 
 {
@@ -533,48 +534,54 @@ NSMutableArray *languagearrytemp;
     
 }
 
-
-
-
 -(void)update_profile
 {
-    
-    
-    if([_btn_City.titleLabel.text isEqualToString:@"City"])
-    {
-        [self alertshow :1 :@"" :@"Select your City"];
-    }
-    else if ([_btn_country.titleLabel.text isEqualToString:@"Country"])
-    {[self alertshow :1 :@"" :@"Select your country"];
+    if ([_btn_country.titleLabel.text isEqualToString:@"Country"]) {
+        [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
+        [self alertshow :1 :@"" :@"Select your country"];
         
-    }else if ([_btn_BrthdY.titleLabel.text isEqualToString:@"Birthday"])
-    {
-       [self alertshow :1 :@"" :@"Add your BirthDate"];
-    }else if( _tf_language.text.length==0)
-    {
-     [self alertshow :1 :@"" :@"Add native language"];
-    }else if ( gender.length==0 )
-    {
-      [self alertshow :1 :@"" :@"Select gender"];
-    }else if (imageData.length==0)
-    {
-       [self alertshow :1 :@"" :@"Upload your profile Image"];
+    }
+    else if([_btn_City.titleLabel.text isEqualToString:@"City"]) {
+        [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
+        [self alertshow :1 :@"" :@"Select your City"];
+        
+    }
+    else if ([_btn_BrthdY.titleLabel.text isEqualToString:@"Birthday"]) {
+        [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
+        [self alertshow :1 :@"" :@"Add your BirthDate"];
+        
+    }
+    else if(_tf_language.text.length==0) {
+        [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
+        [self alertshow :1 :@"" :@"Add native language"];
+        
+    }
+    else if (gender.length==0 ) {
+        [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
+        [self alertshow :1 :@"" :@"Select gender"];
+        
+    }
+    else if (imageData.length==0) {
+        [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
+        [self alertshow :1 :@"" :@"Upload your profile Image"];
     }
     else{
-    
-    NSDictionary *responseDict=[[Singltonweblink createInstance]Updateprofile:self.tf_name.text :self.btn_BrthdY.titleLabel.text :gender :imageData :self.btn_country.titleLabel.text :_btn_City.titleLabel.text :self.tf_language.text :self.tv_descr.text :_tf_language2.text :_tf_language3.text];
-   
-    
-    [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
-    
-    if([[[responseDict objectForKey:@"response"]objectForKey:@"message" ] isEqualToString:@"profile updated successfully"])
-    {
-        [self alertshow :1 :@"" :@"Profile updated successfully"];
-    }
         
+        [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:NO];
+        
+        NSDictionary *responseDict=[[Singltonweblink createInstance]Updateprofile:self.tf_name.text :self.btn_BrthdY.titleLabel.text :gender :imageData :self.btn_country.titleLabel.text :_btn_City.titleLabel.text :self.tf_language.text :self.tv_descr.text :_tf_language2.text :_tf_language3.text];
+        
+        [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
+        
+        if([[[responseDict objectForKey:@"response"]objectForKey:@"message" ] isEqualToString:@"profile updated successfully"]) {
+            [self alertshow :1 :@"" :@"Profile updated successfully"];
+        }
+        else {
+            [self alertshow :1 :@"" :@"Could not complete the opeartion"];
+        }
     }
-  
 }
+
 -(void)firstButton
 {
  

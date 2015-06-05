@@ -99,7 +99,7 @@ int temppostid;
 {
     
     
-    
+    imageData = nil; //To clear image data after posting status as image.
     NSDictionary *resopodict=  [[Singltonweblink createInstance]GetPost:[NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults]objectForKey:@"UserId"]]:[NSString stringWithFormat:@"%i", pageno ]];
     
    // NSDictionary *resopodict=  [[Singltonweblink createInstance]GetPost:[NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults]objectForKey:@"UserId"]]:@"5"];

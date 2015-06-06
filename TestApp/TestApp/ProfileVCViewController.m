@@ -342,8 +342,7 @@
     
     UIImagePickerController * picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
-    
-    
+    picker.navigationBar.tintColor = [UIColor blackColor]; //To set photo album cancel button color to black
     
     
     if(buttonIndex==1)

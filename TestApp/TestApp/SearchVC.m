@@ -21,13 +21,13 @@
     UILabel *lbl_info;
     
     NSArray *city_arry;
-     NSArray *languge_arry;
+    NSArray *languge_arry;
     NSArray *gender_arry;
     
     id response;
     
     NSString *string_category;
-      NSArray *arry_tblmain;
+    NSArray *arry_tblmain;
     
 }
 
@@ -64,7 +64,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   _str_gender=@"Gender";
+    _str_gender=@"Gender";
     city_arry=[[NSArray alloc]init];
     languge_arry=[[NSArray alloc]initWithArray:[Singltonweblink LanguageArraY]];
     
@@ -77,18 +77,18 @@
     
     
     
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 15)];
-    [button setImage:[UIImage imageNamed:@"slider_icon.png"] forState:UIControlStateNormal];
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 21)];
+    [button setImage:[UIImage imageNamed:@"menu@3x.png"] forState:UIControlStateNormal];
     [button addTarget:(DEMONavigationController *)self.navigationController action:@selector(showMenu) forControlEvents:UIControlEventTouchUpInside];
     
     
     
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-
+    
     // Do any additional setup after loading the view from its nib.
-   // [_ageSlider setHidden:TRUE];
-   
+    // [_ageSlider setHidden:TRUE];
+    
     RangeSlider *slider = [[RangeSlider alloc] initWithFrame:CGRectMake(10, 120, self.view.frame.size.width-20, 20)]; // the slider enforces a height of 30, although I'm not sure that this is necessary
     
     //slider.minimumRangeLength = .03; // this property enforces a minimum range size. By default it is set to 0.0
@@ -107,14 +107,14 @@
     
     
     [slider addTarget:self action:@selector(updateRangeLabel:) forControlEvents:UIControlEventValueChanged];
-   // [self.view addSubview:slider];
+    // [self.view addSubview:slider];
     
     
     
     
-   // response=[[NSUserDefaults standardUserDefaults]objectForKey:@"cityarry"];
+    // response=[[NSUserDefaults standardUserDefaults]objectForKey:@"cityarry"];
     response=[[Singltonweblink createInstance]cityname];
-
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -132,18 +132,18 @@
 
 -(void)updateRangeLabel:(RangeSlider *)slider{
     
-  //  NSLog(@"Slider Range: %f - %f", _ageSlider.maximumValue, _ageSlider2.maximumValue);
+    //  NSLog(@"Slider Range: %f - %f", _ageSlider.maximumValue, _ageSlider2.maximumValue);
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 
 
@@ -156,7 +156,7 @@
         
         [vedatepiker removeFromSuperview];
     }
-
+    
     
     vedatepiker=[[UIView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width , 250)];
     [vedatepiker setBackgroundColor:[UIColor  colorWithRed:0.1804 green:0.6510 blue:0.50569 alpha:0.9f]];
@@ -221,7 +221,7 @@
     [UIView animateWithDuration:0.5f animations:^{
         [ vedatepiker setFrame:CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width , 250)];
     } completion:^(BOOL finished) {
-       
+        
     }];
     
 }
@@ -245,7 +245,7 @@
     else {
         return languge_arry.count;
     }
-   
+    
 }
 
 // The data to return for the row and component (column) that's being passed in
@@ -275,7 +275,7 @@
         [self.btn_country setTitle:[self countryNames][row] forState:UIControlStateNormal];
         // city_arry= [response objectForKey:[self countryNames][row]];
         
-         city_arry = [[NSSet setWithArray:[response objectForKey:[self countryNames][row]]] allObjects];
+        city_arry = [[NSSet setWithArray:[response objectForKey:[self countryNames][row]]] allObjects];
         city_arry = [city_arry sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
         
         city_arry=[[NSSet setWithArray:city_arry] allObjects];
@@ -286,7 +286,7 @@
     
     else {
         [self.btn_language setTitle:languge_arry[row] forState:UIControlStateNormal];
-
+        
     }
     
     
@@ -309,10 +309,10 @@
         [_tblmain reloadData];
     }
     else{
-    if([textField.text intValue]<18 && [textField.text intValue]>70)
-    {
-         [self alertshow:1 :@"Age must be between 18 to 70 yeras " :@""]; 
-    }
+        if([textField.text intValue]<18 && [textField.text intValue]>70)
+        {
+            [self alertshow:1 :@"Age must be between 18 to 70 yeras " :@""];
+        }
     }
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -321,9 +321,9 @@
 }
 
 - (IBAction)ageslider_action:(id)sender {
-  // NSLog(@"%f",self.ageSlider.value );
- //   [_lbl_age setText:[NSString stringWithFormat:@"%.0f",_ageSlider.value]];
-   //NSLog(@"Slider Range: %f - %f", _ageSlider.maximumValue, _ageSlider2.maximumValue);
+    // NSLog(@"%f",self.ageSlider.value );
+    //   [_lbl_age setText:[NSString stringWithFormat:@"%.0f",_ageSlider.value]];
+    //NSLog(@"Slider Range: %f - %f", _ageSlider.maximumValue, _ageSlider2.maximumValue);
 }
 
 
@@ -337,61 +337,61 @@
 - (IBAction)btnCountry_action:(id)sender {
     
     [_view_main setFrame: CGRectMake(0, 0, _view_main.frame.size.width, _view_main.frame.size.height)];
-     arry_tblmain=[self countryNames];
-     string_category=@"Country";
+    arry_tblmain=[self countryNames];
+    string_category=@"Choose Country:";
     [_tblmain reloadData];
-
-
-
+    
+    
+    
 }
 
 - (IBAction)btnLanguge_action:(id)sender {
     
     [_view_main setFrame: CGRectMake(0, 0, _view_main.frame.size.width, _view_main.frame.size.height)];
     arry_tblmain=languge_arry;
-    string_category=@"Language";
+    string_category=@"Choose Languages:";
     [_tblmain reloadData];
-
-
+    
+    
 }
 
 - (IBAction)btnCity_action:(id)sender {
     
     [_view_main setFrame: CGRectMake(0, 0, _view_main.frame.size.width, _view_main.frame.size.height)];
     arry_tblmain=city_arry;
-     string_category=@"City";
+    string_category=@"Select City:";
     [_tblmain reloadData];
-//    [self Viewpicker_bacvkground];
-//    [lbl_info setText:@"Select your City..."];
-//    [UIView animateWithDuration:0.5f animations:^{
-//        [ vedatepiker setFrame:CGRectMake(0, self.view.frame.size.height-250, self.view.frame.size.width , 250)];
-//        
-//        
-//        UIPickerView *picker_country =[[UIPickerView alloc]initWithFrame:CGRectMake(0, 50, 325, 200)];
-//        [picker_country setDelegate:self];
-//        [picker_country setTag:2];
-//        [picker_country setDataSource:self];
-//        [vedatepiker addSubview:picker_country];
-//        
-//        
-//        
-//        
-//    } completion:^(BOOL finished) {
-//        // onComplete
-//    }];
-
+    //    [self Viewpicker_bacvkground];
+    //    [lbl_info setText:@"Select your City..."];
+    //    [UIView animateWithDuration:0.5f animations:^{
+    //        [ vedatepiker setFrame:CGRectMake(0, self.view.frame.size.height-250, self.view.frame.size.width , 250)];
+    //
+    //
+    //        UIPickerView *picker_country =[[UIPickerView alloc]initWithFrame:CGRectMake(0, 50, 325, 200)];
+    //        [picker_country setDelegate:self];
+    //        [picker_country setTag:2];
+    //        [picker_country setDataSource:self];
+    //        [vedatepiker addSubview:picker_country];
+    //
+    //
+    //
+    //
+    //    } completion:^(BOOL finished) {
+    //        // onComplete
+    //    }];
+    
 }
 
 - (IBAction)btnGender_action:(id)sender
 {
-   if([sender tag]==1)
-   {
-       [_btn_male setBackgroundImage:[UIImage imageNamed:@"male_mark_.png"] forState:UIControlStateNormal];
+    if([sender tag]==1)
+    {
+        [_btn_male setBackgroundImage:[UIImage imageNamed:@"male_mark_.png"] forState:UIControlStateNormal];
         [_btn_female setBackgroundImage:[UIImage imageNamed:@"female_without_mark_.png"] forState:UIControlStateNormal];
         [_btn_secret setBackgroundImage:[UIImage imageNamed:@"all_without_mark.png"] forState:UIControlStateNormal];
-       _str_gender=@"Male";
-       
-   }
+        _str_gender=@"Male";
+        
+    }
     else if ([sender tag]==2)
     {
         [_btn_male setBackgroundImage:[UIImage imageNamed:@"male_without_mark_.png"] forState:UIControlStateNormal];
@@ -406,21 +406,21 @@
         
         _str_gender=@"All";
     }
-
-
-
+    
+    
+    
 }
 
 - (IBAction)btnSubmit_action:(id)sender {
     
     NSString *countyr;
-      NSString *city;
-     NSString *language;
-    NSString *gender;   
+    NSString *city;
+    NSString *language;
+    NSString *gender;
     
     if([_btn_country.titleLabel.text isEqual:@"Country"])
     {
-     countyr=@"";
+        countyr=@"";
     }
     else{
         countyr=[_btn_country titleLabel].text;
@@ -448,34 +448,34 @@
     else{
         language=[_btn_language titleLabel].text;
     }
-
+    
     if(language.length==0 && countyr.length==0 && city.length==0 && gender.length==0 && _tf_agefrom.text.length==0 && _tf_ageto.text.length==0)
     {
         [self alertshow:1 :@"" :@"Please select any field to search"];
     }
     else if([_tf_agefrom.text intValue]>[_tf_ageto.text intValue])
     {
-       [self alertshow:1 :@"Age from must be less than age to" :@""];
+        [self alertshow:1 :@"Age from must be less than age to" :@""];
     }
     else{
-    
+        
         
         
         NSDictionary *rspoDict=[ [Singltonweblink createInstance]SearchUser:_tf_agefrom.text :_tf_ageto.text  :language :countyr:city :gender];
-    NSLog(@"%@",rspoDict);
-    
-    if([[[[[rspoDict objectForKey:@"response"]  objectForKey:@"res"] objectAtIndex:0]objectForKey:@"id"] isEqualToString:@"-1"])
-    {
-        [self alertshow:1 :@"No user found ! " :@""];
-    }
-    else{
-    
-    
-    SearchUserVC *serchvcObj=[[SearchUserVC alloc]init];
-        // NSLog(@"%@",[[rspoDict objectForKey:@"response"] objectForKey:@"res"]);
-        serchvcObj.main_arry=[[rspoDict objectForKey:@"response"]  objectForKey:@"res"];
-    [self.navigationController pushViewController:serchvcObj animated:YES];
-    }
+        NSLog(@"%@",rspoDict);
+        
+        if([[[[[rspoDict objectForKey:@"response"]  objectForKey:@"res"] objectAtIndex:0]objectForKey:@"id"] isEqualToString:@"-1"])
+        {
+            [self alertshow:1 :@"No user found ! " :@""];
+        }
+        else{
+            
+            
+            SearchUserVC *serchvcObj=[[SearchUserVC alloc]init];
+            // NSLog(@"%@",[[rspoDict objectForKey:@"response"] objectForKey:@"res"]);
+            serchvcObj.main_arry=[[rspoDict objectForKey:@"response"]  objectForKey:@"res"];
+            [self.navigationController pushViewController:serchvcObj animated:YES];
+        }
     }
 }
 
@@ -525,7 +525,7 @@ NSMutableArray *ary;
     ary=[arry_tblmain mutableCopy];
     [ary removeAllObjects];
     
-        // Filter the array using NSPredicate
+    // Filter the array using NSPredicate
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF beginswith[c] %@",searchText];
     ary = [NSMutableArray arrayWithArray:[arry_tblmain filteredArrayUsingPredicate:predicate]];
     arry_tblmain=ary;
@@ -538,9 +538,10 @@ NSMutableArray *ary;
     UIView *footer=[[UIView alloc] initWithFrame:CGRectMake(0,0,tableView.frame.size.width,36)];
     footer.backgroundColor=[UIColor whiteColor];
     
-    UILabel *lbltit=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 90, 30)];
+    UILabel *lbltit=[[UILabel alloc]initWithFrame:CGRectMake(10, 7, 120, 30)];
     [lbltit setText:string_category];
-    [lbltit setFont: [UIFont boldSystemFontOfSize:16.0f]];
+    [lbltit setFont: [UIFont systemFontOfSize:13.0f]];
+    [lbltit setTextColor:[UIColor darkGrayColor]];
     [footer addSubview:lbltit];
     
     
@@ -583,11 +584,11 @@ NSMutableArray *ary;
 }
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    if([string_category isEqualToString:@"Country"])
+    if([string_category isEqualToString:@"Choose Country:"])
     {
         return @"Country";
     }
-    else if ([string_category isEqualToString:@"Country"])
+    else if ([string_category isEqualToString:@"Choose Country:"])
     {
         return _btn_country.titleLabel.text;
     }
@@ -620,7 +621,7 @@ NSMutableArray *ary;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         [cell.textLabel setFont:[UIFont boldSystemFontOfSize:14.0f]];
-        
+        [cell.textLabel setTextColor:[UIColor darkGrayColor]];
         
         
         
@@ -650,9 +651,9 @@ NSMutableArray *ary;
         [_btn_country setTitle:[arry_tblmain objectAtIndex:indexPath.row] forState:UIControlStateNormal];
         
         city_arry= [response objectForKey:[arry_tblmain objectAtIndex:indexPath.row]];
-       
+        
         city_arry=[[NSSet setWithArray:city_arry] allObjects];
-         city_arry = [city_arry sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+        city_arry = [city_arry sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
         
     }
     else if ([string_category isEqualToString:@"City"])
@@ -660,7 +661,7 @@ NSMutableArray *ary;
         [_btn_city setTitle:[arry_tblmain objectAtIndex:indexPath.row] forState:UIControlStateNormal];
     }
     else{
-         [_btn_language setTitle:[arry_tblmain objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+        [_btn_language setTitle:[arry_tblmain objectAtIndex:indexPath.row] forState:UIControlStateNormal];
     }
     [self btnViewTablehide:self.btn_tabl_end];
     

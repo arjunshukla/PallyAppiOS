@@ -209,6 +209,7 @@
 		26FF56511A2CCEF5003F1CF0 /* STBubbleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FF56501A2CCEF5003F1CF0 /* STBubbleTableViewCell.m */; };
 		26FF56541A2CD0F3003F1CF0 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FF56531A2CD0F3003F1CF0 /* Message.m */; };
 		4248611A1B18BE9500DF9FB8 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 424861191B18BE9500DF9FB8 /* FacebookSDK.framework */; };
+		556926E11B2754CC00967561 /* menu@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 556926E01B2754CC00967561 /* menu@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -484,6 +485,7 @@
 		26FF56521A2CD0F3003F1CF0 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		26FF56531A2CD0F3003F1CF0 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
 		424861191B18BE9500DF9FB8 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		556926E01B2754CC00967561 /* menu@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -936,6 +938,7 @@
 		26BEF5F91ABF4826007E7D16 /* pally_search_screen */ = {
 			isa = PBXGroup;
 			children = (
+				556926E01B2754CC00967561 /* menu@3x.png */,
 				265599C61ACB3DDB00BB77CE /* all_mark@2x.png */,
 				265599C71ACB3DDB00BB77CE /* all_without_mark@2x.png */,
 				265599BA1ACB385600BB77CE /* female_mark_@2x.png */,
@@ -1162,6 +1165,7 @@
 				26BEF6261ABF5192007E7D16 /* on_signin_with_text@2x.png in Resources */,
 				265599A21ACB161A00BB77CE /* unfriend_button@2x.png in Resources */,
 				264FB7561AC7422D00718ECF /* circle@2x.png in Resources */,
+				556926E11B2754CC00967561 /* menu@3x.png in Resources */,
 				2641D9481A40AA450006A722 /* friendsIcon@2x.png in Resources */,
 				265599C91ACB3DDB00BB77CE /* all_without_mark@2x.png in Resources */,
 				265599A01ACB11E900BB77CE /* friend_request_sent_button@2x.png in Resources */,

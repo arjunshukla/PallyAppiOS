@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MyHomeVC : UIViewController
+@property (weak, nonatomic) IBOutlet UIImageView *imgViewWritePost;
+@property (weak, nonatomic) IBOutlet UIImageView *imgViewUploadPicture;
 
 @end

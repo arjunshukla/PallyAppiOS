@@ -18,7 +18,7 @@
 @interface FriendProfileVC ()<UITableViewDataSource,UITableViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
 {
     
-  IBOutlet  UIView *backview;
+    IBOutlet  UIView *backview;
     NSDictionary *respodict;
 }
 @property(nonatomic,strong)IBOutlet UICollectionView *collection_home;
@@ -62,10 +62,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-   // NSLog(@"%@",_useid);
+    // NSLog(@"%@",_useid);
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
- respodict= [[Singltonweblink createInstance]GetFriendProfile:[[NSUserDefaults standardUserDefaults]objectForKey:@"UserId" ] :_useidfrnd ];
+    respodict= [[Singltonweblink createInstance]GetFriendProfile:[[NSUserDefaults standardUserDefaults]objectForKey:@"UserId" ] :_useidfrnd ];
     NSLog(@"%@",respodict);
     
     
@@ -74,19 +74,20 @@
     
     
     [_lbl_name setText:[[respodict objectForKey:@"res" ] objectForKey:@"username" ]];
-     [_lbl_city setText:[[respodict objectForKey:@"res" ] objectForKey:@"city" ]];
+    [_lbl_city setText:[[respodict objectForKey:@"res" ] objectForKey:@"city" ]];
     
-     [_lbl_age_gender setText:[[[respodict objectForKey:@"res" ] objectForKey:@"age" ] stringByAppendingString:[NSString stringWithFormat:@", %@",[[respodict objectForKey:@"res" ] objectForKey:@"language" ]]]];
-   
+    [_lbl_age_gender setText:[[[respodict objectForKey:@"res" ] objectForKey:@"age" ] stringByAppendingString:[NSString stringWithFormat:@", %@",[[respodict objectForKey:@"res" ] objectForKey:@"language" ]]]];
+    
     
     
     if([[[respodict objectForKey:@"res" ] objectForKey:@"isfriend" ] isEqualToString:@"ALREADY_SEND"])
     {
-          [_bttn_friendreq setImage:[UIImage imageNamed:@"friend_request_sent_button.png"] forState:UIControlStateNormal];
+        [_bttn_friendreq setImage:[UIImage imageNamed:@"friend_request_sent_button.png"] forState:UIControlStateNormal];
     }
     else if ([[[respodict objectForKey:@"res" ] objectForKey:@"isfriend" ] isEqualToString:@"FRIEND"])
     {
-        [_bttn_friendreq setImage:[UIImage imageNamed:@"unfriend_button.png"] forState:UIControlStateNormal];
+        //        [_bttn_friendreq setImage:[UIImage imageNamed:@"unfriend_button.png"] forState:UIControlStateNormal];
+        [_bttn_friendreq setTitle:@"Unfriend" forState:UIControlStateNormal];
     }
     else{
         [_bttn_friendreq setImage:[UIImage imageNamed:@"add_friendg.png"] forState:UIControlStateNormal];
@@ -101,7 +102,7 @@
     else{
         [_bttb_blockreq setImage:[UIImage imageNamed:@"unblockfrnd.png"] forState:UIControlStateNormal];
     }
-
+    
     
     
     //[backview setBackgroundColor:[UIColor clearColor]];
@@ -113,11 +114,11 @@
     [_lbl_languages setText:[[respodict objectForKey:@"res" ] objectForKey:@"languages" ]];
     [_lbl_aboutme setText:[[respodict objectForKey:@"res" ] objectForKey:@"description" ]];
     
-
+    
     [backview setHidden:TRUE];
     
-   
-   
+    
+    
     
     
     
@@ -139,11 +140,11 @@
     [_asyncImageVw sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:profimageURL,[[respodict objectForKey:@"res" ] objectForKey:@"userimage" ]]] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL){
         [mySpinner removeFromSuperview];
     }];
-       [_asyncCountyvw sd_setImageWithURL:[NSURL URLWithString:[[respodict objectForKey:@"res" ] objectForKey:@"flag" ]] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL){
+    [_asyncCountyvw sd_setImageWithURL:[NSURL URLWithString:[[respodict objectForKey:@"res" ] objectForKey:@"flag" ]] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL){
         [mySpinner removeFromSuperview];
     }];
     
-       // Do any additional setup after loading the view from its nib.
+    // Do any additional setup after loading the view from its nib.
 }
 
 
@@ -168,7 +169,7 @@
     
     [_collection_home reloadData];
     
-
+    
 }
 
 -(void)panGestureRecognized :(UIGestureRecognizer*)tapper
@@ -187,14 +188,14 @@
 
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 
 
@@ -211,7 +212,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-     NSString *textstring=[NSString stringWithFormat:@"%@:%@",[[respodict objectForKey:@"res" ] objectForKey:@"username"],[[[[respodict objectForKey:@"res" ] objectForKey:@"posts" ] objectAtIndex:indexPath.section]objectForKey:@"status_text"]];
+    NSString *textstring=[NSString stringWithFormat:@"%@:%@",[[respodict objectForKey:@"res" ] objectForKey:@"username"],[[[[respodict objectForKey:@"res" ] objectForKey:@"posts" ] objectAtIndex:indexPath.section]objectForKey:@"status_text"]];
     
     
     
@@ -227,12 +228,12 @@
     
     
     CGSize textSize = rect.size;
-
-//    CGSize   textSize = [textstring
-//                         sizeWithFont:[UIFont boldSystemFontOfSize:14]
-//                         constrainedToSize:CGSizeMake(tableView.frame.size.width-60, 2000)
-//                         lineBreakMode:NSLineBreakByWordWrapping];
-
+    
+    //    CGSize   textSize = [textstring
+    //                         sizeWithFont:[UIFont boldSystemFontOfSize:14]
+    //                         constrainedToSize:CGSizeMake(tableView.frame.size.width-60, 2000)
+    //                         lineBreakMode:NSLineBreakByWordWrapping];
+    
     NSString *IMAGENAMEURL=[[[[respodict objectForKey:@"res" ] objectForKey:@"posts" ]objectAtIndex:indexPath.section]objectForKey:@"post_image" ];
     
     if(textSize.height<55.0f && [IMAGENAMEURL length]<4)
@@ -249,7 +250,7 @@
     else{
         return textSize.height+70.0f;
     }
-
+    
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 1;
@@ -260,7 +261,7 @@
 homeTableViewCell *cell;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-  
+    
     //  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     NSString *CellIdentifier =[NSString stringWithFormat:@"%li",(long)indexPath.section];
     cell = (homeTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -276,19 +277,19 @@ homeTableViewCell *cell;
     // NSString class method: boundingRectWithSize:options:attributes:context is
     // available only on ios7.0 sdk.
     CGRect rect = [textstring boundingRectWithSize:CGSizeMake(tableView.frame.size.width-60, 2000)
-                                              options:NSStringDrawingUsesLineFragmentOrigin
-                                           attributes:attributes
-                                              context:nil];
+                                           options:NSStringDrawingUsesLineFragmentOrigin
+                                        attributes:attributes
+                                           context:nil];
     
-   
+    
     
     CGSize textSize = rect.size;
     
     
-//    CGSize   textSize = [textstring
-//                         sizeWithFont:[UIFont boldSystemFontOfSize:14]
-//                         constrainedToSize:CGSizeMake(tableView.frame.size.width-60, 2000)
-//                         lineBreakMode:NSLineBreakByWordWrapping];
+    //    CGSize   textSize = [textstring
+    //                         sizeWithFont:[UIFont boldSystemFontOfSize:14]
+    //                         constrainedToSize:CGSizeMake(tableView.frame.size.width-60, 2000)
+    //                         lineBreakMode:NSLineBreakByWordWrapping];
     
     if (cell == nil)
     {
@@ -300,7 +301,7 @@ homeTableViewCell *cell;
         
         
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
-
+        
         
         
         
@@ -310,54 +311,48 @@ homeTableViewCell *cell;
     
     if([[[[[respodict objectForKey:@"res" ] objectForKey:@"posts" ] objectAtIndex:indexPath.section]objectForKey:@"post_image"]length  ]>4)
     {
-
-    
+        
+        
         NSString *imageurl=[NSString stringWithFormat:@"http://108.179.196.157/~pallyapp/dev/ws/post_image/%@",[[[[respodict objectForKey:@"res" ] objectForKey:@"posts" ] objectAtIndex:indexPath.section]objectForKey:@"post_image"]];
-//        // NSLog(@"%@",imageurl);
-    [cell.asyncPostImageView sd_setImageWithURL:[NSURL URLWithString:imageurl] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL){
-        
-    }];
-    }
-   else{
-
-       [cell.asyncPostImageView setHidden:TRUE];
-       
-   }
-   
-   
-    if(textSize.height>55)
-    {
-    
-    [cell.lblPost setFrame:CGRectMake(60, 6, textSize.width, textSize.height)];
-        
-        [cell.asyncPostImageView setFrame:CGRectMake(cell.asyncPostImageView.frame.origin.x, textSize.height+25.0f, cell.asyncPostImageView.frame.size.width, 120)];
+        //        // NSLog(@"%@",imageurl);
+        [cell.asyncPostImageView sd_setImageWithURL:[NSURL URLWithString:imageurl] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL){
+            
+        }];
     }
     else{
-        [cell.asyncPostImageView setFrame:CGRectMake(cell.asyncPostImageView.frame.origin.x, 65.0f, cell.asyncPostImageView.frame.size.width, 120)];
-         [cell.lblPost setFrame:CGRectMake(60, 6, textSize.width, 45)];
+        
+        [cell.asyncPostImageView setHidden:TRUE];
+        
+    }
+    
+    
+    if(textSize.height>55)
+    {
+        
+        [cell.lblPost setFrame:CGRectMake(60, 6, textSize.width, textSize.height)];
+        
+        //        [cell.asyncPostImageView setFrame:CGRectMake(cell.asyncPostImageView.frame.origin.x, textSize.height+25.0f, cell.asyncPostImageView.frame.size.width, 120)];
+        [cell.asyncPostImageView setFrame:CGRectMake(cell.frame.origin.x, 60, _tbl_main.frame.size.width, 150)];
+        cell.asyncPostImageView.contentMode = UIViewContentModeScaleAspectFill;
+        
+    }
+    else{
+        //        [cell.asyncPostImageView setFrame:CGRectMake(cell.asyncPostImageView.frame.origin.x, 65.0f, cell.asyncPostImageView.frame.size.width, 120)];
+        [cell.asyncPostImageView setFrame:CGRectMake(cell.frame.origin.x, 60, _tbl_main.frame.size.width, 150)];
+        cell.asyncPostImageView.contentMode = UIViewContentModeScaleAspectFill;
+        
+        [cell.lblPost setFrame:CGRectMake(60, 6, textSize.width, 45)];
         [cell.lblPost setContentMode:UIViewContentModeCenter];
     }
     [cell.lblPost setAttributedText:string];
-   
+    
     NSString *imageurlprof=[NSString stringWithFormat:profimageURL,[[respodict objectForKey:@"res" ] objectForKey:@"userimage" ]];
     [cell.asyncProfileImageView sd_setImageWithURL:[NSURL URLWithString:imageurlprof] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL){
+        cell.asyncPostImageView.contentMode = UIViewContentModeScaleAspectFill;
         
     }];
-
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    cell.asyncPostImageView.contentMode = UIViewContentModeScaleAspectFill;
     return cell;
 }
 
@@ -423,13 +418,13 @@ homeTableViewCell *cell;
 }
 
 - (IBAction)btnPhoto_action:(id)sender {
-   
+    
     [_tbl_main setHidden: TRUE];
     [_collection_home setHidden:FALSE];
     [backview setHidden:TRUE];
     [_bttn_photo setImage:[UIImage imageNamed:@"photos_buttonR.png"] forState:UIControlStateNormal];
-     [_bttn_post setImage:[UIImage imageNamed:@"post_button2.png"] forState:UIControlStateNormal];
-     [_bttb_about setImage:[UIImage imageNamed:@"About_us_button2.png"] forState:UIControlStateNormal];
+    [_bttn_post setImage:[UIImage imageNamed:@"post_button2.png"] forState:UIControlStateNormal];
+    [_bttb_about setImage:[UIImage imageNamed:@"About_us_button2.png"] forState:UIControlStateNormal];
     
     
     [self.tbl_main setHidden:TRUE];
@@ -453,9 +448,9 @@ homeTableViewCell *cell;
 }
 
 - (IBAction)btnPost_Action:(id)sender {
-  
+    
     [backview setHidden:TRUE];
-     [_collection_home setHidden:TRUE];
+    [_collection_home setHidden:TRUE];
     [_bttn_photo setImage:[UIImage imageNamed:@"photos_button2.png"] forState:UIControlStateNormal];
     [_bttn_post setImage:[UIImage imageNamed:@"post_buttonR.png"] forState:UIControlStateNormal];
     [_bttb_about setImage:[UIImage imageNamed:@"About_us_button2.png"] forState:UIControlStateNormal];
@@ -507,12 +502,17 @@ homeTableViewCell *cell;
 
 #pragma mark - Collectionview Delegate
 
+- (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
+    //    return [[[respodict objectForKey:@"res" ] objectForKey:@"userPhotoPostDetail" ]count];
+    return 1;
+}
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     
-    return [[[respodict objectForKey:@"res" ] objectForKey:@"userPhotoPostDetail" ]count ];
+    return [[[respodict objectForKey:@"res" ] objectForKey:@"userPhotoPostDetail" ]count];
+    //        return 3;
     
 }
 
@@ -546,16 +546,16 @@ homeTableViewCell *cell;
         }];
         
     }
-   
+    imgback.contentMode = UIViewContentModeScaleAspectFill;
     
     [contents addSubview:imgback];
-
+    
     return cell;
-
+    
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake([[UIScreen mainScreen]bounds].size.width/3-11, [[UIScreen mainScreen]bounds].size.width/3-11);
+    return CGSizeMake([[UIScreen mainScreen]bounds].size.width/4/*/3-11*/, [[UIScreen mainScreen]bounds].size.width/4/*3-11*/);
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath

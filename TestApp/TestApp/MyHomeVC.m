@@ -37,7 +37,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *tv_poststatus;
 
 @property (nonatomic, strong) NSMutableArray *messages;
-
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 
 
@@ -88,12 +88,35 @@
     
     [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     [NSThread detachNewThreadSelector:@selector(getPosts) toTarget:self withObject:nil];
+    
+    
+    UIView *refreshView = [[UIView alloc] initWithFrame:CGRectMake(0, 30, 0, 0)];
+    [self.tbl_main addSubview:refreshView];
+    self.refreshControl = [[UIRefreshControl alloc]init];
+    [self.refreshControl addTarget:self action:@selector(reloadActivity) forControlEvents:UIControlEventValueChanged];
+    [refreshView addSubview:self.refreshControl];
+//    [self.tbl_main addSubview:self.refreshControl];
 }
+
+-(void)reloadActivity
+{
+//    UITableViewController *tableViewController = [[UITableViewController alloc] init];
+//    tableViewController.tableView = self.tbl_main;
+    [self getPosts];
+    [self.refreshControl endRefreshing];
+}
+
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     
     pagenoTemp=pageno;
+}
+
+
+-(void)viewWillAppear:(BOOL)animated {
+    
+    [self getPosts];
 }
 
 int temppostid;

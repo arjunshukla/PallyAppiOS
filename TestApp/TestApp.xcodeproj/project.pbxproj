@@ -208,6 +208,10 @@
 		26FF56541A2CD0F3003F1CF0 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FF56531A2CD0F3003F1CF0 /* Message.m */; };
 		4248611A1B18BE9500DF9FB8 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 424861191B18BE9500DF9FB8 /* FacebookSDK.framework */; };
 		556926E11B2754CC00967561 /* menu@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 556926E01B2754CC00967561 /* menu@3x.png */; };
+		556D39421B309C0500B84E9A /* SeachUserCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 556D39401B309C0500B84E9A /* SeachUserCollectionVC.m */; };
+		556D39431B309C0500B84E9A /* SeachUserCollectionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 556D39411B309C0500B84E9A /* SeachUserCollectionVC.xib */; };
+		556D39471B309D6600B84E9A /* SearchUserCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 556D39451B309D6600B84E9A /* SearchUserCollectionViewCell.m */; };
+		556D39481B309D6600B84E9A /* SearchUserCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 556D39461B309D6600B84E9A /* SearchUserCollectionViewCell.xib */; };
 		F21646801B2CFE59000818B3 /* MyHomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F216467F1B2CFE59000818B3 /* MyHomeVC.xib */; };
 		F21646821B2CFF15000818B3 /* FriendProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F21646811B2CFF15000818B3 /* FriendProfileVC.xib */; };
 		F21646901B2D0BE5000818B3 /* #20bfa3-Teal.png in Resources */ = {isa = PBXBuildFile; fileRef = F216468B1B2D0BE5000818B3 /* #20bfa3-Teal.png */; };
@@ -671,6 +675,12 @@
 		26FF56531A2CD0F3003F1CF0 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
 		424861191B18BE9500DF9FB8 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		556926E01B2754CC00967561 /* menu@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@3x.png"; sourceTree = "<group>"; };
+		556D393F1B309C0500B84E9A /* SeachUserCollectionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeachUserCollectionVC.h; sourceTree = "<group>"; };
+		556D39401B309C0500B84E9A /* SeachUserCollectionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeachUserCollectionVC.m; sourceTree = "<group>"; };
+		556D39411B309C0500B84E9A /* SeachUserCollectionVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SeachUserCollectionVC.xib; sourceTree = "<group>"; };
+		556D39441B309D6600B84E9A /* SearchUserCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchUserCollectionViewCell.h; sourceTree = "<group>"; };
+		556D39451B309D6600B84E9A /* SearchUserCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchUserCollectionViewCell.m; sourceTree = "<group>"; };
+		556D39461B309D6600B84E9A /* SearchUserCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchUserCollectionViewCell.xib; sourceTree = "<group>"; };
 		F216467F1B2CFE59000818B3 /* MyHomeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyHomeVC.xib; sourceTree = "<group>"; };
 		F21646811B2CFF15000818B3 /* FriendProfileVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendProfileVC.xib; sourceTree = "<group>"; };
 		F216468B1B2D0BE5000818B3 /* #20bfa3-Teal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "#20bfa3-Teal.png"; path = "color patches/#20bfa3-Teal.png"; sourceTree = "<group>"; };
@@ -966,6 +976,12 @@
 				262BD58B1A30D41B00F98EB0 /* SearchUserVC.h */,
 				262BD58C1A30D41B00F98EB0 /* SearchUserVC.m */,
 				262BD58D1A30D41B00F98EB0 /* SearchUserVC.xib */,
+				556D393F1B309C0500B84E9A /* SeachUserCollectionVC.h */,
+				556D39401B309C0500B84E9A /* SeachUserCollectionVC.m */,
+				556D39411B309C0500B84E9A /* SeachUserCollectionVC.xib */,
+				556D39441B309D6600B84E9A /* SearchUserCollectionViewCell.h */,
+				556D39451B309D6600B84E9A /* SearchUserCollectionViewCell.m */,
+				556D39461B309D6600B84E9A /* SearchUserCollectionViewCell.xib */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -1877,6 +1893,7 @@
 				F21647471B2D0C1C000818B3 /* ic-edit-pressed@3x.png in Resources */,
 				F216478A1B2D0C1C000818B3 /* radio-btn-select@2x.png in Resources */,
 				F216471C1B2D0C1C000818B3 /* arrw-left@2x.png in Resources */,
+				556D39481B309D6600B84E9A /* SearchUserCollectionViewCell.xib in Resources */,
 				F21647E41B2D0C6F000818B3 /* ic-send-teal@x.png in Resources */,
 				263F9D421A1BB72C00759F9A /* LaunchScreen.xib in Resources */,
 				265599DA1ACB47F100BB77CE /* upload_photo_icon02@2x.png in Resources */,
@@ -1956,6 +1973,7 @@
 				26BEF6191ABF4826007E7D16 /* without_mark@2x.png in Resources */,
 				F21647D21B2D0C6F000818B3 /* ic-attach@x.png in Resources */,
 				F216477C1B2D0C1C000818B3 /* placeholder-image@3x.png in Resources */,
+				556D39431B309C0500B84E9A /* SeachUserCollectionVC.xib in Resources */,
 				F21647641B2D0C1C000818B3 /* ic-send@2x.png in Resources */,
 				F216471E1B2D0C1C000818B3 /* arrw-left@x.png in Resources */,
 				F21647351B2D0C1C000818B3 /* ic-camera-select@3x.png in Resources */,
@@ -2072,6 +2090,7 @@
 				264A52731A3D8FED00592192 /* RangeSlider.m in Sources */,
 				263A940E1A1F9C4300829D32 /* UIImage+ImageEffects.m in Sources */,
 				263F9D3A1A1BB72C00759F9A /* ViewController.m in Sources */,
+				556D39421B309C0500B84E9A /* SeachUserCollectionVC.m in Sources */,
 				261D07C71A3B7DFE00A3DC22 /* FriendRequestVC.m in Sources */,
 				263A94161A1FDB9200829D32 /* SettingVC.m in Sources */,
 				26A37C5A1A3A0FAA00F15730 /* UIView+WebCacheOperation.m in Sources */,
@@ -2086,6 +2105,7 @@
 				26A37C551A3A0FAA00F15730 /* UIImage+GIF.m in Sources */,
 				263A940A1A1F9C4300829D32 /* SCLAlertView.m in Sources */,
 				263F9D371A1BB72C00759F9A /* AppDelegate.m in Sources */,
+				556D39471B309D6600B84E9A /* SearchUserCollectionViewCell.m in Sources */,
 				26A37C4D1A3A0FAA00F15730 /* SDImageCache.m in Sources */,
 				26A37C4B1A3A0FAA00F15730 /* MKAnnotationView+WebCache.m in Sources */,
 				26A37C511A3A0FAA00F15730 /* SDWebImageDownloaderOperation.m in Sources */,

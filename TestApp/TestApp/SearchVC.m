@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Karanbeer Singh. All rights reserved.
 //
 
+#import "SeachUserCollectionVC.h"
 #import "SearchVC.h"
 #import "DEMONavigationController.h"
 #import "SearchUserVC.h"
@@ -470,8 +471,8 @@
         }
         else{
             
-            
-            SearchUserVC *serchvcObj=[[SearchUserVC alloc]init];
+            SeachUserCollectionVC *serchvcObj=[[SeachUserCollectionVC alloc]init]; //To add collection view in search screen
+//            SearchUserVC *serchvcObj=[[SearchUserVC alloc]init];
             // NSLog(@"%@",[[rspoDict objectForKey:@"response"] objectForKey:@"res"]);
             serchvcObj.main_arry=[[rspoDict objectForKey:@"response"]  objectForKey:@"res"];
             [self.navigationController pushViewController:serchvcObj animated:YES];

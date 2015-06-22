@@ -212,6 +212,7 @@
 		556D39431B309C0500B84E9A /* SeachUserCollectionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 556D39411B309C0500B84E9A /* SeachUserCollectionVC.xib */; };
 		556D39471B309D6600B84E9A /* SearchUserCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 556D39451B309D6600B84E9A /* SearchUserCollectionViewCell.m */; };
 		556D39481B309D6600B84E9A /* SearchUserCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 556D39461B309D6600B84E9A /* SearchUserCollectionViewCell.xib */; };
+		557B69511B3343B300F643A0 /* UIViewController+CWPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 557B69501B3343B300F643A0 /* UIViewController+CWPopup.m */; };
 		F21646801B2CFE59000818B3 /* MyHomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F216467F1B2CFE59000818B3 /* MyHomeVC.xib */; };
 		F21646821B2CFF15000818B3 /* FriendProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F21646811B2CFF15000818B3 /* FriendProfileVC.xib */; };
 		F21646901B2D0BE5000818B3 /* #20bfa3-Teal.png in Resources */ = {isa = PBXBuildFile; fileRef = F216468B1B2D0BE5000818B3 /* #20bfa3-Teal.png */; };
@@ -681,6 +682,8 @@
 		556D39441B309D6600B84E9A /* SearchUserCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchUserCollectionViewCell.h; sourceTree = "<group>"; };
 		556D39451B309D6600B84E9A /* SearchUserCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchUserCollectionViewCell.m; sourceTree = "<group>"; };
 		556D39461B309D6600B84E9A /* SearchUserCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchUserCollectionViewCell.xib; sourceTree = "<group>"; };
+		557B694F1B3343B300F643A0 /* UIViewController+CWPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CWPopup.h"; sourceTree = "<group>"; };
+		557B69501B3343B300F643A0 /* UIViewController+CWPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CWPopup.m"; sourceTree = "<group>"; };
 		F216467F1B2CFE59000818B3 /* MyHomeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyHomeVC.xib; sourceTree = "<group>"; };
 		F21646811B2CFF15000818B3 /* FriendProfileVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendProfileVC.xib; sourceTree = "<group>"; };
 		F216468B1B2D0BE5000818B3 /* #20bfa3-Teal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "#20bfa3-Teal.png"; path = "color patches/#20bfa3-Teal.png"; sourceTree = "<group>"; };
@@ -1018,6 +1021,8 @@
 		263737641A1CE3A100E01E08 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				557B694F1B3343B300F643A0 /* UIViewController+CWPopup.h */,
+				557B69501B3343B300F643A0 /* UIViewController+CWPopup.m */,
 				2641D93E1A40AA450006A722 /* MenuIcon */,
 				26C78AA71A1D04DF00AB1AD0 /* DEMOMenuViewController.h */,
 				26C78AA81A1D04DF00AB1AD0 /* DEMOMenuViewController.m */,
@@ -2079,6 +2084,7 @@
 				263F9D5B1A1BC18B00759F9A /* SignUPVC.m in Sources */,
 				262BD58E1A30D41B00F98EB0 /* SearchUserVC.m in Sources */,
 				263737601A1CE37600E01E08 /* REFrostedViewController.m in Sources */,
+				557B69511B3343B300F643A0 /* UIViewController+CWPopup.m in Sources */,
 				263737621A1CE37600E01E08 /* UIView+REFrostedViewController.m in Sources */,
 				26C78AAE1A1D04DF00AB1AD0 /* DEMOMenuViewController.m in Sources */,
 				263A940D1A1F9C4300829D32 /* SCLButton.m in Sources */,

@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyHomeVC">
             <connections>
                 <outlet property="Post_vw" destination="Kgp-cz-jsj" id="zyW-M0-bkq"/>
+                <outlet property="homeView" destination="ITw-VA-pjY" id="zoy-wb-wuh"/>
                 <outlet property="imgViewUploadPicture" destination="rPK-qW-UEi" id="zyQ-fj-11d"/>
                 <outlet property="imgViewWritePost" destination="Ttx-3Z-J9o" id="wIj-NY-VJo"/>
                 <outlet property="img_textviwtop" destination="Fpl-LO-WfY" id="MqH-oe-U2l"/>
@@ -168,15 +169,23 @@
                         <constraint firstItem="fHV-RF-Gem" firstAttribute="top" secondItem="Kgp-cz-jsj" secondAttribute="top" constant="8" id="yVW-pl-O5j"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ITw-VA-pjY">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Kgp-cz-jsj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="1aT-FQ-lLK"/>
                 <constraint firstItem="qll-Bx-wG7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="2Uy-U5-I3S"/>
                 <constraint firstAttribute="bottom" secondItem="qll-Bx-wG7" secondAttribute="bottom" constant="8" id="DWz-hE-sX9"/>
+                <constraint firstItem="ITw-VA-pjY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="LxX-um-oca"/>
                 <constraint firstAttribute="trailing" secondItem="Kgp-cz-jsj" secondAttribute="trailing" constant="8" id="aXN-qS-zVx"/>
                 <constraint firstItem="Kgp-cz-jsj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="68" id="cIR-BZ-ZKe"/>
                 <constraint firstAttribute="trailing" secondItem="qll-Bx-wG7" secondAttribute="trailing" constant="8" id="cMs-ng-FyB"/>
+                <constraint firstAttribute="bottom" secondItem="ITw-VA-pjY" secondAttribute="bottom" id="dDq-rH-ITQ"/>
+                <constraint firstAttribute="trailing" secondItem="ITw-VA-pjY" secondAttribute="trailing" id="niN-ib-PWg"/>
+                <constraint firstItem="ITw-VA-pjY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="p8t-rW-IKq"/>
                 <constraint firstItem="qll-Bx-wG7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="211" id="w8i-co-d6w"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>

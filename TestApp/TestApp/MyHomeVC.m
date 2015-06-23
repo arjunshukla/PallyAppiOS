@@ -477,12 +477,15 @@
 
 - (IBAction)btn_sharePost:(id)sender {
     
-    if((_tv_poststatus.text.length==0 && imageData.length==0) || [_tv_poststatus.text isEqualToString:@"CREATE POST..."])
+    if((_tv_poststatus.text.length==0 || [_tv_poststatus.text isEqualToString:@"CREATE POST..."])&& imageData.length==0)
     {
         [self alertshow :1 :@"Sorry!" :@"Empty post cannot be uploaded"];
         
     }
     else{
+        if(_tv_poststatus.text.length==0 || [_tv_poststatus.text isEqualToString:@"CREATE POST..."]) {
+            self.tv_poststatus.text = @"";
+        }
         
         [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
         NSDictionary *dictreturn= [[Singltonweblink createInstance]uplodpst:[NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults]objectForKey:@"UserId"]] :self.tv_poststatus.text :imageData];

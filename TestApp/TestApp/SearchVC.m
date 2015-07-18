@@ -10,26 +10,20 @@
 #import "SearchVC.h"
 #import "DEMONavigationController.h"
 #import "SearchUserVC.h"
-
 #import "Singltonweblink.h"
 #import "SCLAlertView.h"
-
 #import "RangeSlider.h"
 
 @interface SearchVC ()<UIPickerViewDataSource,UIPickerViewDelegate,UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
 {
     UIView *vedatepiker;
     UILabel *lbl_info;
-    
     NSArray *city_arry;
     NSArray *languge_arry;
     NSArray *gender_arry;
-    
     id response;
-    
     NSString *string_category;
     NSArray *arry_tblmain;
-    
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tblmain;
@@ -73,17 +67,9 @@
     
     languge_arry = [languge_arry sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
     
-    
-    
-    
-    
-    
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 21)];
     [button setImage:[UIImage imageNamed:@"menu@3x.png"] forState:UIControlStateNormal];
     [button addTarget:(DEMONavigationController *)self.navigationController action:@selector(showMenu) forControlEvents:UIControlEventTouchUpInside];
-    
-    
-    
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     
@@ -106,16 +92,11 @@
     image = [UIImage imageNamed:@"fillrange.png"];
     [slider setInRangeTrackImage:image];
     
-    
     [slider addTarget:self action:@selector(updateRangeLabel:) forControlEvents:UIControlEventValueChanged];
     // [self.view addSubview:slider];
     
-    
-    
-    
     // response=[[NSUserDefaults standardUserDefaults]objectForKey:@"cityarry"];
     response=[[Singltonweblink createInstance]cityname];
-    
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -124,12 +105,10 @@
     [_tblmain .layer setCornerRadius:5.0f];
 }
 
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 -(void)updateRangeLabel:(RangeSlider *)slider{
     
@@ -146,32 +125,23 @@
  }
  */
 
-
-
 -(void)Viewpicker_bacvkground
 
 {
     [_view_main setFrame: CGRectMake(0, 0, _view_main.frame.size.width, _view_main.frame.size.height)];
-    if(vedatepiker)
-    {
-        
+    if(vedatepiker) {
         [vedatepiker removeFromSuperview];
     }
-    
     
     vedatepiker=[[UIView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width , 250)];
     [vedatepiker setBackgroundColor:[UIColor  colorWithRed:0.1804 green:0.6510 blue:0.50569 alpha:0.9f]];
     
     [self.view addSubview:vedatepiker];
     
-    
-    
     lbl_info=[[UILabel alloc]initWithFrame:CGRectMake(10, 10,self.view.frame.size.width-100, 20)];
     
     [lbl_info setTextColor:[UIColor whiteColor]];
     [vedatepiker addSubview: lbl_info];
-    
-    
     
     UIButton *bttn_done=[UIButton buttonWithType:UIButtonTypeSystem];
     [bttn_done setFrame:CGRectMake(self.view.frame.size.width-80, 0, 70, 40)];
@@ -179,7 +149,6 @@
     [bttn_done setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [bttn_done addTarget:self action:@selector(donedatePiker_action:) forControlEvents:UIControlEventTouchUpInside];
     [vedatepiker addSubview:bttn_done];
-    
 }
 
 -(NSDictionary *)countryNamesByCode
@@ -212,11 +181,11 @@
     if (!_countryNames)
     {
         _countryNames = [[[[self countryNamesByCode] allValues] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)] copy];
-        
     }
     // NSLog(@"%@",_countryNames);
     return _countryNames;
 }
+
 -(void) donedatePiker_action :(id)sender
 {
     [UIView animateWithDuration:0.5f animations:^{
@@ -224,9 +193,7 @@
     } completion:^(BOOL finished) {
         
     }];
-    
 }
-
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
@@ -246,7 +213,6 @@
     else {
         return languge_arry.count;
     }
-    
 }
 
 // The data to return for the row and component (column) that's being passed in
@@ -262,12 +228,7 @@
     else {
         return [languge_arry objectAtIndex:row];
     }
-    
-    
 }
-
-
-
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
@@ -287,16 +248,11 @@
     
     else {
         [self.btn_language setTitle:languge_arry[row] forState:UIControlStateNormal];
-        
     }
-    
-    
 }
-
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    
     if(textField.tag==9)
     {
         ary=[[self countryNames] mutableCopy];
@@ -316,6 +272,7 @@
         }
     }
 }
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     return [textField resignFirstResponder];
@@ -327,8 +284,6 @@
     //NSLog(@"Slider Range: %f - %f", _ageSlider.maximumValue, _ageSlider2.maximumValue);
 }
 
-
-
 -(IBAction)btnViewTablehide:(id)sender
 {
     // [_view_main setHidden:TRUE];
@@ -339,29 +294,30 @@
     
     [_view_main setFrame: CGRectMake(0, 0, _view_main.frame.size.width, _view_main.frame.size.height)];
     arry_tblmain=[self countryNames];
-    string_category=@"Choose Country:";
+    string_category=@"Country";
     [_tblmain reloadData];
-    
-    
-    
 }
 
 - (IBAction)btnLanguge_action:(id)sender {
     
     [_view_main setFrame: CGRectMake(0, 0, _view_main.frame.size.width, _view_main.frame.size.height)];
     arry_tblmain=languge_arry;
-    string_category=@"Choose Languages:";
+    string_category=@"Language";
     [_tblmain reloadData];
-    
-    
 }
 
 - (IBAction)btnCity_action:(id)sender {
     
-    [_view_main setFrame: CGRectMake(0, 0, _view_main.frame.size.width, _view_main.frame.size.height)];
-    arry_tblmain=city_arry;
-    string_category=@"Select City:";
-    [_tblmain reloadData];
+    if(self.btn_country.titleLabel.text.length == 0 || [self.btn_country.titleLabel.text caseInsensitiveCompare:@"country"] == NSOrderedSame) {
+        [self alertshow :1 :@"" :@"Select your country"];
+    }
+    
+    else {
+        [_view_main setFrame: CGRectMake(0, 0, _view_main.frame.size.width, _view_main.frame.size.height)];
+        arry_tblmain=city_arry;
+        string_category=@"City";
+        [_tblmain reloadData];
+    }
     //    [self Viewpicker_bacvkground];
     //    [lbl_info setText:@"Select your City..."];
     //    [UIView animateWithDuration:0.5f animations:^{
@@ -407,9 +363,6 @@
         
         _str_gender=@"All";
     }
-    
-    
-    
 }
 
 - (IBAction)btnSubmit_action:(id)sender {
@@ -459,9 +412,6 @@
         [self alertshow:1 :@"Age from must be less than age to" :@""];
     }
     else{
-        
-        
-        
         NSDictionary *rspoDict=[ [Singltonweblink createInstance]SearchUser:_tf_agefrom.text :_tf_ageto.text  :language :countyr:city :gender];
         NSLog(@"%@",rspoDict);
         
@@ -486,7 +436,6 @@
     NSString *closebttntitle=@"Ok";
     if(type>1)
     {
-        
         SCLButton *button = [alert addButton:@"First Button" target:self selector:@selector(firstButton)];
         closebttntitle=@"Close";
         button.layer.borderWidth = 2.0f;
@@ -505,24 +454,21 @@
         [alert addButton:@"Second Button" actionBlock:^(void) {
             NSLog(@"Second button tapped");
         }];
-        
     }
     
     alert.soundURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/right_answer.mp3", [[NSBundle mainBundle] resourcePath]]];
-    
     [alert showSuccess:self title:message subTitle:submessage closeButtonTitle:closebttntitle duration:0.0f];
 }
+
 -(void) firstButton
 {
     
 }
 
-
 #pragma mark - SearchBAr methods
 NSMutableArray *ary;
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-    
     ary=[arry_tblmain mutableCopy];
     [ary removeAllObjects];
     
@@ -534,6 +480,7 @@ NSMutableArray *ary;
     [_tblmain reloadData];
     //arry_tblmain=[self countryNames];
 }
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView *footer=[[UIView alloc] initWithFrame:CGRectMake(0,0,tableView.frame.size.width,36)];
@@ -544,8 +491,6 @@ NSMutableArray *ary;
     [lbltit setFont: [UIFont systemFontOfSize:13.0f]];
     [lbltit setTextColor:[UIColor darkGrayColor]];
     [footer addSubview:lbltit];
-    
-    
     
     UITextField *tf=[[UITextField alloc]initWithFrame:CGRectMake(lbltit.frame.size.width+10,5, tableView.frame.size.width-lbltit.frame.size.width-15, 30)];
     [tf setDelegate:self];
@@ -563,17 +508,13 @@ NSMutableArray *ary;
     [serchbartybl setBarTintColor:[UIColor whiteColor]];
     //[footer addSubview:serchbartybl];
     return footer;
-    
 }
-
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
     //return  _btn_tabl_end;
-    
     UIView *footer=[[UIView alloc] initWithFrame:CGRectMake(0,0,tableView.frame.size.width,36)];
     footer.backgroundColor=[UIColor whiteColor];
-    
     
     UIButton *btnendtbl=[UIButton buttonWithType:UIButtonTypeCustom];
     [btnendtbl setFrame:CGRectMake(tableView.frame.size.width/2-50, 0, 100, 36)];
@@ -583,6 +524,7 @@ NSMutableArray *ary;
     [footer addSubview:btnendtbl];
     return footer;
 }
+
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     if([string_category isEqualToString:@"Choose Country:"])
@@ -597,6 +539,7 @@ NSMutableArray *ary;
         return @"Language";
     }
 }
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -610,10 +553,6 @@ NSMutableArray *ary;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Bubble Cell";
-    
-    
-    
-    
     UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil)
     {
@@ -623,26 +562,13 @@ NSMutableArray *ary;
         
         [cell.textLabel setFont:[UIFont boldSystemFontOfSize:14.0f]];
         [cell.textLabel setTextColor:[UIColor darkGrayColor]];
-        
-        
-        
     }
-    
     [cell.textLabel setText:[arry_tblmain objectAtIndex:indexPath.row]];
-    
-    
-    
-    
-    
-    
-    
-    
-    
     return cell;
 }
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     if([string_category isEqualToString:@"Country"])
     {
         if(![_btn_country.titleLabel.text isEqualToString:[arry_tblmain objectAtIndex:indexPath.row]])
@@ -665,8 +591,6 @@ NSMutableArray *ary;
         [_btn_language setTitle:[arry_tblmain objectAtIndex:indexPath.row] forState:UIControlStateNormal];
     }
     [self btnViewTablehide:self.btn_tabl_end];
-    
 }
-
 
 @end

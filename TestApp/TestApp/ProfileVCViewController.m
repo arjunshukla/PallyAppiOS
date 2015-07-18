@@ -9,36 +9,23 @@
 #import "ProfileVCViewController.h"
 #import "DEMONavigationController.h"
 #import "Singltonweblink.h"
-
 #import "SDWebImage/UIImageView+WebCache.h"
 #import "SCLAlertView.h"
 #import "MBProgressHUD.h"
 
 @interface ProfileVCViewController ()<UIActionSheetDelegate,UIPickerViewDataSource,UIPickerViewDelegate,UIGestureRecognizerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UITextFieldDelegate>
 {
-   
     UIView *vedatepiker;
-    
     NSString *gender;
-    
     NSData *imageData;
-    
-    
     UILabel *lbl_info;
-    
     NSArray *city_arry;
-      NSArray *languge_arry;;
-    
+    NSArray *languge_arry;;
     UITextField *temptextfield;
-    
     UIActivityIndicatorView* mySpinner;
     NSString *string_category;
-    
     NSDictionary *response;
-    
-    
     NSArray *arry_tblmain;
-    
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tblmain;
@@ -86,32 +73,22 @@
     city_arry=[[NSArray alloc]init];
     arry_tblmain=[[NSArray alloc]init];
     
-    
     languge_arry=[[NSArray alloc]initWithArray:[Singltonweblink LanguageArraY]];
-    
-    
-    
-    
-    
     
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 15)];
     [button setImage:[UIImage imageNamed:@"cancel_icon.png"] forState:UIControlStateNormal];
     [button addTarget:(DEMONavigationController *)self.navigationController action:@selector(showMenu) forControlEvents:UIControlEventTouchUpInside];
     
-    
     UIButton *buttontick = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 15)];
     [buttontick setImage:[UIImage imageNamed:@"done_icon.png"] forState:UIControlStateNormal];
     [buttontick addTarget:self action:@selector(tickbttn_action) forControlEvents:UIControlEventTouchUpInside];
-    
     
     self.title=@"Profile";
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:buttontick];
 
-    
-    
-  //  [self Viewpicker_bacvkground];
+    //  [self Viewpicker_bacvkground];
     [self.asyncImageVw.layer setCornerRadius:self.asyncImageVw.frame.size.width/2];
     
     //[_asyncImageVw setContentMode:UIViewContentModeScaleAspectFit];
@@ -131,8 +108,7 @@
     
     [self.asyncImageVw addSubview:mySpinner];
  
-    
-   // response=[[NSUserDefaults standardUserDefaults]objectForKey:@"cityarry"];
+    // response=[[NSUserDefaults standardUserDefaults]objectForKey:@"cityarry"];
     response=[[Singltonweblink createInstance]cityname];
     
     [self.tv_descr.layer setCornerRadius:10.0f];
@@ -159,7 +135,6 @@
     [_view_main setFrame: CGRectMake(0, 0, _view_main.frame.size.width, _view_main.frame.size.height)];
     if(vedatepiker)
     {
-       
         [vedatepiker removeFromSuperview];
     }
     
@@ -167,8 +142,6 @@
    // [vedatepiker setBackgroundColor:[UIColor  colorWithRed:0.1804 green:0.6510 blue:0.50569 alpha:0.9f]];
     [vedatepiker setBackgroundColor: [UIColor whiteColor]];
     [_view_main addSubview:vedatepiker];
-    
-    
     
     lbl_info=[[UILabel alloc]initWithFrame:CGRectMake(10, 10,self.view.frame.size.width-100, 20)];
     //[lbl_info setText:@"Select your Birthdate..."];
@@ -202,81 +175,61 @@
 
 }
 
-
-
-
-
-
-
-     -(void)fillprofiledata :(NSDictionary *)responsived
-     {
-         self.tf_city.text=[[[responsived objectForKey:@"response"]objectForKey:@"res" ]objectForKey:@"city" ];
-         
-         [self.btn_City setTitle:[[[responsived objectForKey:@"response"]objectForKey:@"res" ]objectForKey:@"city" ] forState:UIControlStateNormal];
-         self.tf_name.text=[[[responsived objectForKey:@"response"]objectForKey:@"res" ]objectForKey:@"username" ];
-         if([[[[responsived objectForKey:@"response"]objectForKey:@"res" ]objectForKey:@"dob" ]length ]>0)
-         {
-         [self.btn_BrthdY setTitle:[[[responsived objectForKey:@"response"]objectForKey:@"res" ]objectForKey:@"dob" ] forState:UIControlStateNormal];
-         }
-         if([[[[responsived objectForKey:@"response"]objectForKey:@"res" ]objectForKey:@"country" ]length ]>0)
-         {
-         [self.btn_country setTitle:[[[responsived objectForKey:@"response"]objectForKey:@"res" ]objectForKey:@"country" ] forState:UIControlStateNormal];
-             
-             
-             
-           //  city_arry= [response objectForKey:[[[responsived objectForKey:@"response"]objectForKey:@"res" ]objectForKey:@"country" ]];
-             city_arry = [[NSSet setWithArray:[response objectForKey:[[[responsived objectForKey:@"response"]objectForKey:@"res" ]objectForKey:@"country" ]]] allObjects];
-             city_arry = [city_arry sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-         }
-         [self.tv_descr setText:[[[responsived objectForKey:@"response"]objectForKey:@"res" ]objectForKey:@"description" ]];
-         
-         [self.tf_language setText:[[[responsived objectForKey:@"response"]objectForKey:@"res" ]objectForKey:@"language" ]];
-         [self.tf_language adjustsFontSizeToFitWidth];
-         [self.tf_language setMinimumFontSize:11];
-         [self.tf_language2 setText:[[[responsived objectForKey:@"response"]objectForKey:@"res" ]objectForKey:@"language2" ]];
-         [self.tf_language3 setText:[[[responsived objectForKey:@"response"]objectForKey:@"res" ]objectForKey:@"language3" ]];
+-(void)fillprofiledata :(NSDictionary *)responsived
+{
+    self.tf_city.text=[[[responsived objectForKey:@"response"]objectForKey:@"res" ]objectForKey:@"city" ];
+    
+    [self.btn_City setTitle:[[[responsived objectForKey:@"response"]objectForKey:@"res" ]objectForKey:@"city" ] forState:UIControlStateNormal];
+    self.tf_name.text=[[[responsived objectForKey:@"response"]objectForKey:@"res" ]objectForKey:@"username" ];
+    if([[[[responsived objectForKey:@"response"]objectForKey:@"res" ]objectForKey:@"dob" ]length ]>0)
+    {
+        [self.btn_BrthdY setTitle:[[[responsived objectForKey:@"response"]objectForKey:@"res" ]objectForKey:@"dob" ] forState:UIControlStateNormal];
+    }
+    if([[[[responsived objectForKey:@"response"]objectForKey:@"res" ]objectForKey:@"country" ]length ]>0)
+    {
+        [self.btn_country setTitle:[[[responsived objectForKey:@"response"]objectForKey:@"res" ]objectForKey:@"country" ] forState:UIControlStateNormal];
         
-         NSString *imageUrl=[NSString stringWithFormat:profimageURL,[[[responsived objectForKey:@"response"]objectForKey:@"res" ]objectForKey:@"userimage" ]];
-        // [self.asyncImageVw setImageURL:[NSURL URLWithString:imageUrl]];
-         [self.asyncImageVw sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL){
-            [ mySpinner removeFromSuperview];
-         }];
-         
-         
-         if([[[[responsived objectForKey:@"response"]objectForKey:@"res" ]objectForKey:@"gender" ] isEqualToString:@"Male"])
-         {
-             [_btn_male setBackgroundImage:[UIImage imageNamed:@"male_mark_.png"] forState:UIControlStateNormal];
-             [_btn_female setBackgroundImage:[UIImage imageNamed:@"female_without_mark_.png"] forState:UIControlStateNormal];
-             [_btn_secret setBackgroundImage:[UIImage imageNamed:@"secret_without_mark_.png"] forState:UIControlStateNormal];
-             gender=@"Male";
-         }
-         else if([[[[responsived objectForKey:@"response"]objectForKey:@"res" ]objectForKey:@"gender" ] isEqualToString:@"Female"]){
-             [_btn_male setBackgroundImage:[UIImage imageNamed:@"male_without_mark_.png"] forState:UIControlStateNormal];
-             [_btn_female setBackgroundImage:[UIImage imageNamed:@"female_mark_.png"] forState:UIControlStateNormal];
-             [_btn_secret setBackgroundImage:[UIImage imageNamed:@"secret_without_mark_.png"] forState:UIControlStateNormal];
-             gender=@"Female";
-         }
-         
-         else{
-             [_btn_male setBackgroundImage:[UIImage imageNamed:@"male_without_mark_.png"] forState:UIControlStateNormal];
-             [_btn_female setBackgroundImage:[UIImage imageNamed:@"female_without_mark_.png"] forState:UIControlStateNormal];
-             [_btn_secret setBackgroundImage:[UIImage imageNamed:@"secret_mark_.png"] forState:UIControlStateNormal];
-             gender=@"Secret";
-         }
-         
-         
-         
-         [self countryNames];
-         
-     }
+        //  city_arry= [response objectForKey:[[[responsived objectForKey:@"response"]objectForKey:@"res" ]objectForKey:@"country" ]];
+        city_arry = [[NSSet setWithArray:[response objectForKey:[[[responsived objectForKey:@"response"]objectForKey:@"res" ]objectForKey:@"country" ]]] allObjects];
+        city_arry = [city_arry sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    }
+    [self.tv_descr setText:[[[responsived objectForKey:@"response"]objectForKey:@"res" ]objectForKey:@"description" ]];
+    
+    [self.tf_language setText:[[[responsived objectForKey:@"response"]objectForKey:@"res" ]objectForKey:@"language" ]];
+    [self.tf_language adjustsFontSizeToFitWidth];
+    [self.tf_language setMinimumFontSize:11];
+    [self.tf_language2 setText:[[[responsived objectForKey:@"response"]objectForKey:@"res" ]objectForKey:@"language2" ]];
+    [self.tf_language3 setText:[[[responsived objectForKey:@"response"]objectForKey:@"res" ]objectForKey:@"language3" ]];
+    
+    NSString *imageUrl=[NSString stringWithFormat:profimageURL,[[[responsived objectForKey:@"response"]objectForKey:@"res" ]objectForKey:@"userimage" ]];
+    // [self.asyncImageVw setImageURL:[NSURL URLWithString:imageUrl]];
+    [self.asyncImageVw sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL){
+        [ mySpinner removeFromSuperview];
+    }];
+    
+    if([[[[responsived objectForKey:@"response"]objectForKey:@"res" ]objectForKey:@"gender" ] isEqualToString:@"Male"])
+    {
+        [_btn_male setBackgroundImage:[UIImage imageNamed:@"male_mark_.png"] forState:UIControlStateNormal];
+        [_btn_female setBackgroundImage:[UIImage imageNamed:@"female_without_mark_.png"] forState:UIControlStateNormal];
+        [_btn_secret setBackgroundImage:[UIImage imageNamed:@"secret_without_mark_.png"] forState:UIControlStateNormal];
+        gender=@"Male";
+    }
+    else if([[[[responsived objectForKey:@"response"]objectForKey:@"res" ]objectForKey:@"gender" ] isEqualToString:@"Female"]){
+        [_btn_male setBackgroundImage:[UIImage imageNamed:@"male_without_mark_.png"] forState:UIControlStateNormal];
+        [_btn_female setBackgroundImage:[UIImage imageNamed:@"female_mark_.png"] forState:UIControlStateNormal];
+        [_btn_secret setBackgroundImage:[UIImage imageNamed:@"secret_without_mark_.png"] forState:UIControlStateNormal];
+        gender=@"Female";
+    }
+    else{
+        [_btn_male setBackgroundImage:[UIImage imageNamed:@"male_without_mark_.png"] forState:UIControlStateNormal];
+        [_btn_female setBackgroundImage:[UIImage imageNamed:@"female_without_mark_.png"] forState:UIControlStateNormal];
+        [_btn_secret setBackgroundImage:[UIImage imageNamed:@"secret_mark_.png"] forState:UIControlStateNormal];
+        gender=@"Secret";
+    }
+    [self countryNames];
+}
 
-
-
-
-
-
-#pragma mark - Country City List 
-
+#pragma mark - Country City List
 
 -(NSDictionary *)countryNamesByCode
 {
@@ -314,40 +267,27 @@
     return _countryNames;
 }
 
-
-
-
-
 #pragma mark - ImagePicker Action
-
-
-
 
 -(void)panGestureRecognized :(UIGestureRecognizer*)tapper
 {
- 
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@""
                                                              delegate:self
                                                     cancelButtonTitle:@"Cancel"
                                                destructiveButtonTitle:@"Camera"
                                                     otherButtonTitles:@"Gallery", nil];
     
-    
-    [actionSheet showInView:self.view];
-    
+        [actionSheet showInView:self.view];
 }
+
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    
-    
     UIImagePickerController * picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     picker.navigationBar.tintColor = [UIColor blackColor]; //To set photo album cancel button color to black
     
-    
     if(buttonIndex==1)
     {
-     
         picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
     }
     else if(buttonIndex==0)
@@ -360,32 +300,20 @@
          [self alertshow :1 :@"Sorry!" :@"Camera not supporting"];
         }
         
-        
     }
-    
-    
     [self presentViewController:picker animated:YES completion:nil];
 }
 
-
-
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
-    
     self.asyncImageVw.image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
-    
     
     imageData=UIImageJPEGRepresentation(self.asyncImageVw.image, 0.3f);
     [picker dismissViewControllerAnimated:YES completion:nil];
     
 }
 
-
-
-
-
 #pragma mark - TextField Delegates
-
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
@@ -403,15 +331,12 @@
             ary=[languge_arry mutableCopy];
         }
        
-        
         // Filter the array using NSPredicate
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF beginswith[c] %@",textField.text];
         arry_tblmain = [NSMutableArray arrayWithArray:[arry_tblmain filteredArrayUsingPredicate:predicate]];
        // arry_tblmain=ary;
-        
         [_tblmain reloadData];
     }
-
 }
 
 NSMutableArray *languagearrytemp;
@@ -420,16 +345,8 @@ NSMutableArray *languagearrytemp;
   if(textField==_tf_language || textField==_tf_language2 || textField==_tf_language3)
   {
       temptextfield=textField;
-      
-
-
-      
   }
-    
-    
 }
-
-
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
@@ -441,6 +358,7 @@ NSMutableArray *languagearrytemp;
     [self.view setFrame:CGRectMake(0, -150, self.view.frame.size.width, self.view.frame.size.height)];
 
 }
+
 - (BOOL) textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
     if([text isEqualToString:@"\n"]){
          [self.view setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
@@ -450,22 +368,17 @@ NSMutableArray *languagearrytemp;
                return YES;
     }
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-    
-    
-  
 }
-
 
 #pragma mark - All------Button-------Actions
 
 -(IBAction)btnViewTablehide:(id)sender
 {
    // [_view_main setHidden:TRUE];
-    
-    
     
     if(arry_tblmain==languge_arry)
     {
@@ -488,9 +401,9 @@ NSMutableArray *languagearrytemp;
     }
     [_view_main setFrame: CGRectMake(0, _view_main.frame.size.height, _view_main.frame.size.width, _view_main.frame.size.height)];
 }
+
 - (IBAction)btncountry_action:(id)sender
 {
-    
     [vedatepiker setHidden:TRUE];
     [self.tblmain setHidden: FALSE];
     [_view_main setFrame: CGRectMake(0, 0, _view_main.frame.size.width, _view_main.frame.size.height)];
@@ -499,10 +412,9 @@ NSMutableArray *languagearrytemp;
     arry_tblmain=[self countryNames];
     
     [_tblmain reloadData];
-    
 }
+
 -(IBAction)btnlanguage_action:(id)sender {
-    
     
     [vedatepiker setHidden:TRUE];
     [self.tblmain setHidden: FALSE];
@@ -517,20 +429,20 @@ NSMutableArray *languagearrytemp;
 
 - (IBAction)btnCity_action:(id)sender {
     
+    if(self.btn_country.titleLabel.text.length == 0 || [self.btn_country.titleLabel.text caseInsensitiveCompare:@"country"] == NSOrderedSame)
+    {
+        [self alertshow :1 :@"" :@"Select your country"];
+    }
+    else {
+        [vedatepiker setHidden:TRUE];
+        [self.tblmain setHidden: FALSE];
+        [_view_main setFrame: CGRectMake(0, 0, _view_main.frame.size.width, _view_main.frame.size.height)];
+        //[self.view addSubview:_view_main];
+        string_category=@"City";
+        arry_tblmain=city_arry;
     
-    [vedatepiker setHidden:TRUE];
-    [self.tblmain setHidden: FALSE];
-    [_view_main setFrame: CGRectMake(0, 0, _view_main.frame.size.width, _view_main.frame.size.height)];
-    //[self.view addSubview:_view_main];
-    string_category=@"City";
-    arry_tblmain=city_arry;
-    
-    [_tblmain reloadData];
-    
-    
-    
-    
-    
+        [_tblmain reloadData];
+    }
 }
 
 -(void)update_profile
@@ -585,13 +497,13 @@ NSMutableArray *languagearrytemp;
 {
  
 }
+
 -(void)alertshow :(int )type : (NSString *)message :(NSString *)submessage
 {
     SCLAlertView *alert = [[SCLAlertView alloc] init];
     NSString *closebttntitle=@"Ok";
     if(type>1)
     {
-        
         SCLButton *button = [alert addButton:@"First Button" target:self selector:@selector(firstButton)];
         closebttntitle=@"Close";
         button.layer.borderWidth = 2.0f;
@@ -610,18 +522,11 @@ NSMutableArray *languagearrytemp;
         [alert addButton:@"Second Button" actionBlock:^(void) {
             NSLog(@"Second button tapped");
         }];
-        
     }
-    
     alert.soundURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/right_answer.mp3", [[NSBundle mainBundle] resourcePath]]];
     
     [alert showSuccess:self title:message subTitle:submessage closeButtonTitle:closebttntitle duration:0.0f];
 }
-
-
-
-
-
 
 - (IBAction)segment_Action:(id)sender {
     
@@ -647,17 +552,9 @@ NSMutableArray *languagearrytemp;
         
         gender=@"All";
     }
-
 }
 
-
-
-
-
-
 #pragma mark - PickerView Delegates
-
-
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
@@ -692,26 +589,16 @@ NSMutableArray *languagearrytemp;
     else{
         return [languge_arry objectAtIndex:row];
     }
-
 }
-
-
-
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     if(pickerView.tag==1)
     {
-        
-        
-        
-        
-    [self.btn_country setTitle:[self countryNames][row] forState:UIControlStateNormal];
+        [self.btn_country setTitle:[self countryNames][row] forState:UIControlStateNormal];
         city_arry= [response objectForKey:[self countryNames][row]];
          city_arry = [city_arry sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
         city_arry=[[NSSet setWithArray:city_arry] allObjects];
-
-
     }
     else  if(pickerView.tag==2){
          [self.btn_City setTitle:city_arry[row] forState:UIControlStateNormal];
@@ -726,22 +613,11 @@ else{
 UIActionSheet *actionSheet;
 NSString *pickerType;
 
-
-
-
-
-
 #pragma mark - DatePickerView Delegates
-
-
 
 - (IBAction)createActionSheet1:(id)sender {
     
-    
-    
-    
-    
-     [self Viewpicker_bacvkground];
+    [self Viewpicker_bacvkground];
     [vedatepiker setHidden:FALSE];
     [self.tblmain setHidden: TRUE];
     
@@ -750,10 +626,7 @@ NSString *pickerType;
    
    [lbl_info setText:@"Choose Birth Date :"];
     
-    
-    
-        
-        // Add the picker
+    // Add the picker
       UIDatePicker  *datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 50, 325, 200)];
         datePicker.datePickerMode = UIDatePickerModeDate;
         datePicker.hidden = NO;
@@ -768,21 +641,15 @@ NSString *pickerType;
     } completion:^(BOOL finished) {
         // onComplete
         }];
-    
 }
 
 -(void) donedatePiker_action :(id)sender
 {
-    
     [_view_main setFrame: CGRectMake(0, [[UIScreen mainScreen]bounds].size.height, _view_main.frame.size.width, _view_main.frame.size.height)];
-
-
 }
 
 - (void)changeDateInLabel:(id)sender{
     NSString *dob;
-    
-    
     UIDatePicker *datepicker=(UIDatePicker *)sender;
     //Use NSDateFormatter to write out the date in a friendly format
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
@@ -790,11 +657,9 @@ NSString *pickerType;
     dob = [NSString stringWithFormat:@"%@",[df stringFromDate:datepicker.date]];
     NSLog(@"%@",dob);
     //self.btn_BrthdY.titleLabel.text=dob;
-[self.btn_BrthdY setTitle:dob forState:UIControlStateNormal];
+    [self.btn_BrthdY setTitle:dob forState:UIControlStateNormal];
     
 }
-
-
 
 #pragma mark - SearchBAr methods
 NSMutableArray *ary;
@@ -827,11 +692,7 @@ NSMutableArray *ary;
 //    
 //}
 
-
-
-
 #pragma mark - UITableViewDatasource methods
-
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
@@ -842,9 +703,6 @@ NSMutableArray *ary;
     [lbltit setText:string_category];
     [lbltit setFont: [UIFont boldSystemFontOfSize:16.0f]];
     [footer addSubview:lbltit];
-    
-    
-   
     
     UITextField *tf=[[UITextField alloc]initWithFrame:CGRectMake(lbltit.frame.size.width+10,5, tableView.frame.size.width-lbltit.frame.size.width-15, 30)];
     [tf setDelegate:self];
@@ -859,18 +717,14 @@ NSMutableArray *ary;
     
     //[footer addSubview:serchbartybl];
     return footer;
-
 }
-
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
     //return  _btn_tabl_end;
-    
     UIView *footer=[[UIView alloc] initWithFrame:CGRectMake(0,0,tableView.frame.size.width,36)];
     footer.backgroundColor=[UIColor whiteColor];
    
-    
     UIButton *btnendtbl=[UIButton buttonWithType:UIButtonTypeCustom];
      [btnendtbl setFrame:CGRectMake(tableView.frame.size.width/2-50, 0, 100, 36)];
     [btnendtbl setImage:[UIImage imageNamed:@"ok_button.png"] forState:UIControlStateNormal];
@@ -892,41 +746,22 @@ NSMutableArray *ary;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-   NSString *CellIdentifier=[NSString stringWithFormat:@"%li",(long)indexPath];
-    
-    
-    
-    
+    NSString *CellIdentifier=[NSString stringWithFormat:@"%li",(long)indexPath];
     UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil)
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        
-        
         [cell.textLabel setFont:[UIFont boldSystemFontOfSize:14.0f]];
-        
-       
-        
-        
     }
     cell.backgroundColor = tableView.backgroundColor;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
      [cell.textLabel setText:[arry_tblmain objectAtIndex:indexPath.row]];
     
-    
-    
-    
-    
-    
-    
-    
-    
     return cell;
 }
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
-    
     UITableViewCell *cell=(UITableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
     [cell setBackgroundColor:[UIColor colorWithRed:87.0f/255.0f green:187.0f/255.0f blue:157.0f/255.0f alpha:1.0f]];
     
@@ -960,7 +795,6 @@ NSMutableArray *ary;
    else{
         [self btnViewTablehide:self.btn_tabl_end];
    }
-
 }
 
 @end
